@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentEvidence.Views.StatistikyWindow"
+        Title="Statistiky třídy"
+        Width="500" Height="420"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E2E"
+        CanResize="False">
+
+  <Grid RowDefinitions="Auto,*,Auto" Margin="0">
+
+    <Border Grid.Row="0" Background="#313244" Padding="20,14">
+      <TextBlock Text="📊 Statistiky třídy"
+                 FontSize="18" FontWeight="Bold"
+                 Foreground="#CDD6F4"/>
+    </Border>
+
+    <ScrollViewer Grid.Row="1" Margin="20">
+      <StackPanel Spacing="12" Name="StatsPanel"/>
+    </ScrollViewer>
+
+    <Border Grid.Row="2" Background="#181825" Padding="16,10">
+      <Button Name="BtnZavrit"
+              Content="Zavřít"
+              HorizontalAlignment="Right"
+              Background="#45475A" Foreground="#CDD6F4"
+              Padding="20,8" CornerRadius="6"/>
+    </Border>
+
+  </Grid>
+</Window>

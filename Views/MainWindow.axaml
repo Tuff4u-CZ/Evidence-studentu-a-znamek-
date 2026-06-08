@@ -1,0 +1,112 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentEvidence.Views.MainWindow"
+        Title="Evidence studentů a známek"
+        Width="900" Height="620"
+        MinWidth="700" MinHeight="500"
+        Background="#1E1E2E">
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+    <!-- Hlavička -->
+    <Border Grid.Row="0" Background="#313244" Padding="20,16">
+      <StackPanel>
+        <TextBlock Text="📚 Evidence studentů a známek"
+                   FontSize="22" FontWeight="Bold"
+                   Foreground="#CDD6F4"/>
+        <TextBlock Name="InfoText" Text=""
+                   FontSize="12" Foreground="#6C7086" Margin="0,4,0,0"/>
+      </StackPanel>
+    </Border>
+
+    <!-- Panel hledání a tlačítek -->
+    <Border Grid.Row="1" Background="#181825" Padding="16,10">
+      <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+        <TextBox Grid.Column="0"
+                 Name="HledaniBox"
+                 Watermark="🔍 Hledat studenta nebo třídu..."
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6"
+                 Padding="10,8" Margin="0,0,10,0"/>
+
+        <Button Grid.Column="1" Name="BtnPridat"
+                Content="➕ Přidat studenta"
+                Background="#A6E3A1" Foreground="#1E1E2E"
+                FontWeight="SemiBold" Padding="14,8"
+                CornerRadius="6" Margin="0,0,6,0"/>
+
+        <Button Grid.Column="2" Name="BtnStatistiky"
+                Content="📊 Statistiky"
+                Background="#89B4FA" Foreground="#1E1E2E"
+                FontWeight="SemiBold" Padding="14,8"
+                CornerRadius="6" Margin="0,0,6,0"/>
+
+        <Button Grid.Column="3" Name="BtnExport"
+                Content="💾 Export TXT"
+                Background="#FAB387" Foreground="#1E1E2E"
+                FontWeight="SemiBold" Padding="14,8"
+                CornerRadius="6"/>
+      </Grid>
+    </Border>
+
+    <!-- Seznam studentů -->
+    <ScrollViewer Grid.Row="2" Margin="16">
+      <ListBox Name="StudentiList"
+               Background="Transparent"
+               SelectionMode="Single">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Border Background="#313244" CornerRadius="8"
+                    Padding="16,12" Margin="0,0,0,8">
+              <Grid ColumnDefinitions="*,Auto,Auto">
+                <StackPanel Grid.Column="0">
+                  <TextBlock Text="{Binding CeleJmeno}"
+                             FontSize="15" FontWeight="SemiBold"
+                             Foreground="#CDD6F4"/>
+                  <TextBlock Text="{Binding Trida}"
+                             FontSize="12" Foreground="#89B4FA"
+                             Margin="0,2,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center"
+                            HorizontalAlignment="Right" Margin="0,0,16,0">
+                  <TextBlock Name="PrumerText"
+                             FontSize="20" FontWeight="Bold"
+                             Foreground="#A6E3A1"
+                             HorizontalAlignment="Center"/>
+                  <TextBlock Text="průměr" FontSize="10"
+                             Foreground="#6C7086"
+                             HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal"
+                            VerticalAlignment="Center" Spacing="6">
+                  <Button Name="BtnZnamky"
+                          Content="📝 Známky"
+                          Background="#CBA6F7" Foreground="#1E1E2E"
+                          FontSize="12" Padding="10,6" CornerRadius="5"/>
+                  <Button Name="BtnUpravit"
+                          Content="✏️"
+                          Background="#45475A" Foreground="#CDD6F4"
+                          FontSize="14" Padding="8,6" CornerRadius="5"/>
+                  <Button Name="BtnSmazat"
+                          Content="🗑️"
+                          Background="#F38BA8" Foreground="#1E1E2E"
+                          FontSize="14" Padding="8,6" CornerRadius="5"/>
+                </StackPanel>
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </ScrollViewer>
+
+    <!-- Dolní stavový řádek -->
+    <Border Grid.Row="3" Background="#181825" Padding="16,8">
+      <TextBlock Name="StatusText"
+                 Text="Připraveno"
+                 Foreground="#6C7086" FontSize="12"/>
+    </Border>
+
+  </Grid>
+</Window>

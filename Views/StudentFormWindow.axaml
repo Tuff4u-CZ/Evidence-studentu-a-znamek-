@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentEvidence.Views.StudentFormWindow"
+        Title="Student"
+        Width="420" Height="340"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E2E"
+        CanResize="False">
+
+  <Grid RowDefinitions="Auto,*,Auto" Margin="24">
+
+    <!-- Nadpis -->
+    <TextBlock Grid.Row="0" Name="Titulek"
+               Text="Přidat studenta"
+               FontSize="18" FontWeight="Bold"
+               Foreground="#CDD6F4" Margin="0,0,0,20"/>
+
+    <!-- Formulář -->
+    <StackPanel Grid.Row="1" Spacing="14">
+
+      <StackPanel Spacing="4">
+        <TextBlock Text="Jméno" Foreground="#A6ADC8" FontSize="12"/>
+        <TextBox Name="JmenoBox"
+                 Watermark="Zadej jméno..."
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+        <TextBlock Name="JmenoChyba" Text="" Foreground="#F38BA8" FontSize="11"/>
+      </StackPanel>
+
+      <StackPanel Spacing="4">
+        <TextBlock Text="Příjmení" Foreground="#A6ADC8" FontSize="12"/>
+        <TextBox Name="PrijmeniBox"
+                 Watermark="Zadej příjmení..."
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+        <TextBlock Name="PrijmeniChyba" Text="" Foreground="#F38BA8" FontSize="11"/>
+      </StackPanel>
+
+      <StackPanel Spacing="4">
+        <TextBlock Text="Třída" Foreground="#A6ADC8" FontSize="12"/>
+        <TextBox Name="TridaBox"
+                 Watermark="Např. 4.A"
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+        <TextBlock Name="TridaChyba" Text="" Foreground="#F38BA8" FontSize="11"/>
+      </StackPanel>
+
+    </StackPanel>
+
+    <!-- Tlačítka -->
+    <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" Margin="0,20,0,0">
+      <Button Grid.Column="1" Name="BtnUlozit"
+              Content="💾 Uložit"
+              Background="#A6E3A1" Foreground="#1E1E2E"
+              FontWeight="SemiBold" Padding="20,10"
+              CornerRadius="6" Margin="0,0,8,0"/>
+      <Button Grid.Column="2" Name="BtnZrusit"
+              Content="Zrušit"
+              Background="#45475A" Foreground="#CDD6F4"
+              Padding="16,10" CornerRadius="6"/>
+    </Grid>
+
+  </Grid>
+</Window>

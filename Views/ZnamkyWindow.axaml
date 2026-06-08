@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentEvidence.Views.ZnamkyWindow"
+        Title="Správa známek"
+        Width="560" Height="500"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E2E">
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="0">
+
+    <!-- Hlavička se jménem studenta -->
+    <Border Grid.Row="0" Background="#313244" Padding="20,14">
+      <StackPanel>
+        <TextBlock Name="JmenoLabel"
+                   FontSize="18" FontWeight="Bold"
+                   Foreground="#CDD6F4"/>
+        <TextBlock Name="PrumerLabel"
+                   FontSize="13" Foreground="#A6E3A1"
+                   Margin="0,4,0,0"/>
+      </StackPanel>
+    </Border>
+
+    <!-- Panel přidání známky -->
+    <Border Grid.Row="1" Background="#181825" Padding="16,12">
+      <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+        <TextBox Grid.Column="0" Name="PredmetBox"
+                 Watermark="Předmět (Matematika...)"
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6"
+                 Padding="10,8" Margin="0,0,8,0"/>
+        <TextBox Grid.Column="1" Name="ZnamkaBox"
+                 Watermark="1–5"
+                 Width="70"
+                 Background="#313244" Foreground="#CDD6F4"
+                 BorderBrush="#45475A" CornerRadius="6"
+                 Padding="10,8" Margin="0,0,8,0"/>
+        <Button Grid.Column="2" Name="BtnPridatZnamku"
+                Content="➕ Přidat"
+                Background="#A6E3A1" Foreground="#1E1E2E"
+                FontWeight="SemiBold" Padding="14,8"
+                CornerRadius="6" Margin="0,0,8,0"/>
+        <TextBlock Grid.Column="3" Name="ChybaText"
+                   Text="" Foreground="#F38BA8"
+                   FontSize="11" VerticalAlignment="Center"/>
+      </Grid>
+    </Border>
+
+    <!-- Seznam předmětů a jejich známek -->
+    <ScrollViewer Grid.Row="2" Margin="16">
+      <ItemsControl Name="PredmetyList">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <!-- Každý předmět je jeden panel - generujeme v code-behind -->
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+
+    <!-- Dolní tlačítko -->
+    <Border Grid.Row="3" Background="#181825" Padding="16,10">
+      <Grid ColumnDefinitions="*,Auto">
+        <TextBlock Grid.Column="0" Name="InfoText"
+                   Foreground="#6C7086" FontSize="12"
+                   VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Name="BtnZavrit"
+                Content="Zavřít"
+                Background="#45475A" Foreground="#CDD6F4"
+                Padding="16,8" CornerRadius="6"/>
+      </Grid>
+    </Border>
+
+  </Grid>
+</Window>
