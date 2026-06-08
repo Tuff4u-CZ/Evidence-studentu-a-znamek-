@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Threading;
 using StudentEvidence.Models;
 using StudentEvidence.Services;
 using System.Collections.Generic;
@@ -35,7 +34,7 @@ namespace StudentEvidence.Views
             _zobrazeni = _service.Filtruj(hledani);
 
             // Vytvoří vizuální položky pro každého studenta
-            var polozky = _zobrazeni.Select(student => CrateStudentItem(student)).ToList();
+            var polozky = _zobrazeni.Select(student => CreateStudentItem(student)).ToList();
             StudentiList.ItemsSource = null;
             StudentiList.ItemsSource = polozky;
 
@@ -45,15 +44,16 @@ namespace StudentEvidence.Views
             StatusText.Text = $"Zobrazeno {_zobrazeni.Count} z {vsichni.Count} studentů";
         }
 
-        // Vytvoří panel pro jednoho studenta v ListBoxu
-        private Border CrateStudentItem(Student student)
+        // Vytvoří panel pro jednoho studenta
+        private Border CreateStudentItem(Student student)
         {
             double prumer = student.VypoctiPrumer();
             string prumerText = prumer > 0 ? prumer.ToString("F1") : "—";
+            string barvaPromer = prumer > 0 && prumer <= 2.0 ? "#A6E3A1" : prumer <= 3.5 ? "#F9E2AF" : "#F38BA8";
 
             var border = new Border
             {
-                Background = Avalonia.Media.Brushes.Transparent,
+                Background = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#313244")),
                 CornerRadius = new Avalonia.CornerRadius(8),
                 Padding = new Avalonia.Thickness(16, 12),
                 Margin = new Avalonia.Thickness(0, 0, 0, 8)
@@ -89,8 +89,6 @@ namespace StudentEvidence.Views
                 HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
                 Margin = new Avalonia.Thickness(0, 0, 20, 0)
             };
-            
-            var barvaPromer = prumer <= 2.0 ? "#A6E3A1" : prumer <= 3.5 ? "#F9E2AF" : "#F38BA8";
             prumerStack.Children.Add(new TextBlock
             {
                 Text = prumerText,
@@ -159,7 +157,6 @@ namespace StudentEvidence.Views
             };
             btnSmazat.Click += async (_, _) =>
             {
-                // Potvrzovací dialog
                 var dialog = new PotvrzeniWindow($"Opravdu smazat studenta {student.CeleJmeno}?");
                 bool potvrzen = await dialog.ShowDialog<bool>(this);
                 if (potvrzen)

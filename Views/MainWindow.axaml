@@ -21,7 +21,7 @@
 
     <!-- Panel hledání a tlačítek -->
     <Border Grid.Row="1" Background="#181825" Padding="16,10">
-      <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+      <Grid ColumnDefinitions="*,Auto,Auto,Auto">
         <TextBox Grid.Column="0"
                  Name="HledaniBox"
                  Watermark="🔍 Hledat studenta nebo třídu..."
@@ -49,56 +49,9 @@
       </Grid>
     </Border>
 
-    <!-- Seznam studentů -->
+    <!-- Seznam studentů - generováno programově v code-behind -->
     <ScrollViewer Grid.Row="2" Margin="16">
-      <ListBox Name="StudentiList"
-               Background="Transparent"
-               SelectionMode="Single">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Border Background="#313244" CornerRadius="8"
-                    Padding="16,12" Margin="0,0,0,8">
-              <Grid ColumnDefinitions="*,Auto,Auto">
-                <StackPanel Grid.Column="0">
-                  <TextBlock Text="{Binding CeleJmeno}"
-                             FontSize="15" FontWeight="SemiBold"
-                             Foreground="#CDD6F4"/>
-                  <TextBlock Text="{Binding Trida}"
-                             FontSize="12" Foreground="#89B4FA"
-                             Margin="0,2,0,0"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1" VerticalAlignment="Center"
-                            HorizontalAlignment="Right" Margin="0,0,16,0">
-                  <TextBlock Name="PrumerText"
-                             FontSize="20" FontWeight="Bold"
-                             Foreground="#A6E3A1"
-                             HorizontalAlignment="Center"/>
-                  <TextBlock Text="průměr" FontSize="10"
-                             Foreground="#6C7086"
-                             HorizontalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="2" Orientation="Horizontal"
-                            VerticalAlignment="Center" Spacing="6">
-                  <Button Name="BtnZnamky"
-                          Content="📝 Známky"
-                          Background="#CBA6F7" Foreground="#1E1E2E"
-                          FontSize="12" Padding="10,6" CornerRadius="5"/>
-                  <Button Name="BtnUpravit"
-                          Content="✏️"
-                          Background="#45475A" Foreground="#CDD6F4"
-                          FontSize="14" Padding="8,6" CornerRadius="5"/>
-                  <Button Name="BtnSmazat"
-                          Content="🗑️"
-                          Background="#F38BA8" Foreground="#1E1E2E"
-                          FontSize="14" Padding="8,6" CornerRadius="5"/>
-                </StackPanel>
-              </Grid>
-            </Border>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
+      <ItemsControl Name="StudentiList"/>
     </ScrollViewer>
 
     <!-- Dolní stavový řádek -->

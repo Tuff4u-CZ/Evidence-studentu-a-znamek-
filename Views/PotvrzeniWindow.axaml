@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentEvidence.Views.PotvrzeniWindow"
+        Title="Potvrzení"
+        Width="380" Height="160"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E2E">
+
+  <Border Background="#313244"
+          CornerRadius="10"
+          Margin="16"
+          Padding="24">
+    <StackPanel Spacing="20">
+
+      <TextBlock Name="ZpravaText"
+                 FontSize="14"
+                 Foreground="#CDD6F4"
+                 TextWrapping="Wrap"/>
+
+      <StackPanel Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  Spacing="8">
+        <Button Name="BtnAno"
+                Content="✅ Ano, smazat"
+                Background="#F38BA8" Foreground="#1E1E2E"
+                FontWeight="SemiBold"
+                Padding="16,8" CornerRadius="6"/>
+        <Button Name="BtnNe"
+                Content="Zrušit"
+                Background="#45475A" Foreground="#CDD6F4"
+                Padding="16,8" CornerRadius="6"/>
+      </StackPanel>
+
+    </StackPanel>
+  </Border>
+
+</Window>

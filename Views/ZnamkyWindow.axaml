@@ -22,38 +22,35 @@
 
     <!-- Panel přidání známky -->
     <Border Grid.Row="1" Background="#181825" Padding="16,12">
-      <Grid ColumnDefinitions="*,Auto,Auto,Auto">
-        <TextBox Grid.Column="0" Name="PredmetBox"
-                 Watermark="Předmět (Matematika...)"
-                 Background="#313244" Foreground="#CDD6F4"
-                 BorderBrush="#45475A" CornerRadius="6"
-                 Padding="10,8" Margin="0,0,8,0"/>
-        <TextBox Grid.Column="1" Name="ZnamkaBox"
-                 Watermark="1–5"
-                 Width="70"
-                 Background="#313244" Foreground="#CDD6F4"
-                 BorderBrush="#45475A" CornerRadius="6"
-                 Padding="10,8" Margin="0,0,8,0"/>
-        <Button Grid.Column="2" Name="BtnPridatZnamku"
-                Content="➕ Přidat"
-                Background="#A6E3A1" Foreground="#1E1E2E"
-                FontWeight="SemiBold" Padding="14,8"
-                CornerRadius="6" Margin="0,0,8,0"/>
-        <TextBlock Grid.Column="3" Name="ChybaText"
+      <StackPanel Spacing="6">
+        <Grid ColumnDefinitions="*,Auto,Auto">
+          <TextBox Grid.Column="0" Name="PredmetBox"
+                   Watermark="Předmět (Matematika...)"
+                   Background="#313244" Foreground="#CDD6F4"
+                   BorderBrush="#45475A" CornerRadius="6"
+                   Padding="10,8" Margin="0,0,8,0"/>
+          <TextBox Grid.Column="1" Name="ZnamkaBox"
+                   Watermark="1–5"
+                   Width="70"
+                   Background="#313244" Foreground="#CDD6F4"
+                   BorderBrush="#45475A" CornerRadius="6"
+                   Padding="10,8" Margin="0,0,8,0"/>
+          <Button Grid.Column="2" Name="BtnPridatZnamku"
+                  Content="➕ Přidat"
+                  Background="#A6E3A1" Foreground="#1E1E2E"
+                  FontWeight="SemiBold" Padding="14,8"
+                  CornerRadius="6"/>
+        </Grid>
+        <!-- Chybová zpráva pod inputy -->
+        <TextBlock Name="ChybaText"
                    Text="" Foreground="#F38BA8"
-                   FontSize="11" VerticalAlignment="Center"/>
-      </Grid>
+                   FontSize="11" Margin="2,0,0,0"/>
+      </StackPanel>
     </Border>
 
-    <!-- Seznam předmětů a jejich známek -->
+    <!-- Seznam předmětů a jejich známek - generováno programově -->
     <ScrollViewer Grid.Row="2" Margin="16">
-      <ItemsControl Name="PredmetyList">
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            <!-- Každý předmět je jeden panel - generujeme v code-behind -->
-          </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
+      <ItemsControl Name="PredmetyList"/>
     </ScrollViewer>
 
     <!-- Dolní tlačítko -->
